@@ -1,47 +1,22 @@
-Descriere
-Am implementat o galerie de fotografii pe web. Userii care isi creeaza cont pot
-publica fotografii, care sunt vizibile in pagina de home a website-ului.
+**OVERVIEW**\
+This project represents an implemention of a web photo gallery. Users who create an account are able to publish photos, visibile on the home page of the website.
 
-Frontend
-Partea de frontend este implementata cu ajutorul a HTML, CSS, Flask, Jinja2 si
-Bootstrap. Toate paginile pornesc de la template-ul base.html, care contine cod
-HTML pentru o bara de navigare, prin care utilizatorul poate naviga pe paginile
-site-ului. Aceasta bara este de tip collapsible (prin minimizarea ferestrei, se
-apare un hamburger menu icon prin care se pot accesa paginile). Un utilizator
-neautentificat are acces la urmatoarele pagini:
-- Home: pagina principala a siteului, unde sunt afisate, pe categorii, toate
-pozele din galerie (pozele apartinand tuturor user-ilor)
-- Sign Up: pagina prin care un vizitator al site-ului isi poate crea cont
-- Login: pagina prin care un utilizator isi poate introduce credentialele
-pentru a se loga
-- About Me: pagina care explica pe scurt scopul site-ului
-Dupa ce intra in cont, ultilizatorul are acces si la urmatoarele pagini:
-- Photo Gallery: pagina in care sunt dispuse fotografiile adaugate de user-ul
-logat, afisate sub forma de thumbnail in functie de categorii
-- Upload: pagina prin care user-ul poate incarca noi fotografii
-- Logout: utilizatorul este intrebat daca doreste sa iasa din cont
-Fiecare pagina are un fisier .html aferent, in care este extins fisierul
-base.html pentru a obtine efectul dorit pentru fiecare pagina. In paginile
-in care sunt afisate fotografiile (Home si Photo Gallery), pentru fiecare
-fotografie este afisat un thumbnail. Prin click pe thumbnail, se afiseaza
-imagina in format full-size.
+**Frontend**\
+The frontend of the website is implemented using HTML, CSS, Flask, Jinja2 and Bootstrap. All website pages feature a collapsible navigation bar that transforms into a hamburger menu when the page is minimized. An unauthenicated user can access the following pages:
+* Home: the main page of the website; all of the photos uploaded on the website are displayed on the home page by category.
+* Sign Up: a page that allows users to create an account
+* Login: a page where users with an existing account can log in
+* About Me: page that outlines the purpose of this website
+  
+After logging into the account, the user is granted access to the following web pages:
+* Photo Gallery: a page that displays by category all of the photos updated by the use
+* Upload: a page that allows users to upload new photos
+* Logout: a page where the user can log out of their account
+  
+Photos are displayed as a thumbnail; by clicking on the thumbnail, the full-sized photo is shown.
 
-Backend
-Partea de backend este realizata cu ajutorul Python. Fisierul __init__.py
-configureaza o aplicatie Flask si o baza de date SQLite in care sunt stocate
-informatii despre useri si fisierele incarcate de acestia. In fisierul main.py
-se implementeaza functiile python care permit incarcarea fotografiilor si
-afisarea lor in pagina home si in pagina de galerie a fiecarui user. Pentru
-fiecare fotografie incarcata, este generat si un thumbnail, care este afisat in
-locul fotografiei full-sized. Fisierul auth.py contine implementarea functiilor
-care asigura functionalitatile de login/logout si creare de cont (sign up).
-Fisierul models.py defineste doua modele in SQLAlchemy pentru retinerea datelor
-despre utilizatori si despre fotografii intr-un database. User reprezinta un
-utilizator, fiind reprezentat de urmatoarele atribute: id, email, prenume si 
-parola (care este retinuta in database sub forma hash). Photo reprezinta o
-fotografie adaugata, fiind identificata prin filename, numele dat de user,
-categorie, data incarcarii si user_id (id-ul utilizatorului care a incarcat
-fotografia).
+**Backend**\
+The backend of the website was developed using Python, using some Flask configurations as well. Information about users and uploaded photos is stored in a SQLite database. The project includes multiple Python files, used in implementing the website functionalities: log in / log out, sign up, upload photo, display photo and thumbnails
 
-Docker Containerization
-Proiectul contine un Dockerfile prin care se poate construi si rula serverul.
+**Docker Containerization**\
+The project contains a Dockerfile, used for building and running the server.
