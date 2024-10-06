@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Logout{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Are you sure you want to log out?</h2>
+    <div class="mt-4">
+        <form action="/logout_confirm" method="POST">
+            <button type="submit" class="btn btn-danger">Yes</button>
+            <a href="{{ url_for('home') }}" class="btn btn-secondary">No</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
